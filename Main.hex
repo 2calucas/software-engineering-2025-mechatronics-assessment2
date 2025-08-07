@@ -2,10 +2,12 @@
 from microbit import *
 import utime
 import speech
+
+
 #24 hour time
 # Set initial time manually
-start_hour = 2
-start_minute = 30
+start_hour = 11
+start_minute = 59
 
 # Record the start time in milliseconds
 start_ticks = utime.ticks_ms()
@@ -21,11 +23,13 @@ while True:
     # Update current time
     current_hour = (start_hour + (start_minute + elapsed_minutes) // 60) % 24
     current_minute = (start_minute + elapsed_minutes) % 60
+    
     # Speech of the time
     time_hour = str (current_hour)
     time_minute = str (current_minute)
     speech.say(time_hour + ':' + time_minute)
     print(time_hour + ":" + time_minute)
+
     # Display binary time
     display.scroll(to_binary(current_hour) + ":" + to_binary(current_minute))
 
