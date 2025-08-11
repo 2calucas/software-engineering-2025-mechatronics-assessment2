@@ -65,8 +65,11 @@ class MicrobitClockSystem:
         num = 0
         while True:
             display.show(num)
+
+            #This is where you can set time & alarm time by clicking the A button on the microbit.
             if button_a.was_pressed():
                 num = (num + 1) % 60
+            #This is where you can confirm the A button dicision and move onto the next section.
             elif button_b.was_pressed():
                 return num
             sleep(150)
