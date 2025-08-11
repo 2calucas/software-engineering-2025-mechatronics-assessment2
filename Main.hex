@@ -1,38 +1,89 @@
-#imports
 from microbit import *
-import utime
-import speech
+import music
+
+class BinaryClock:
+    def __init__(self):
+        self.hours = 0
+        self.minutes = 0
+        self.alarm_hour = 12
+        self.alarm_minute = 35
+
+    def set_time(self, hours, minutes):
+        """Set the clock time manually."""
+        self.hours = hours % 24
+        self.minutes = minutes % 60
+
+    def set_alarm(self, hours, minutes):
+        """Set the alarm time manually."""
+        self.alarm_hour = hours % 24
+        self.alarm_minute = minutes % 60
+
+    def increment_time(self):
+        """Simulate clock ticking every minute."""
+        self.minutes += 1
+        if self.minutes >= 60:
+            self.minutes = 0
+            self.hours = (self.hours + 1) % 24
+
+    def check_alarm(self):
+        """Check if alarm should trigger."""
+        return self.hours == self.alarm_hour and self.minutes == self.alarm_minute
+
+    def time_to_binary_string(self):
+        """Return the current time as a binary string."""
+        h_binary = "{:05b}".format(self.hours)   # Hours: 0–23 needs 5 bits
+        m_binary = "{:06b}".format(self.minutes) # Minutes: 0–59 needs 6 bits
+        return h_binary + " " + m_binary
+
+    def scroll_time(self):
+        """Scroll the binary time across LEDs."""
+        display.scroll(self.time_to_binary_string())
 
 
-#24 hour time
-# Set initial time manually
-start_hour = 11
-start_minute = 59
+class MicrobitClockSystem:
+    def __init__(self):
+        self.clock = BinaryClock()
 
-# Record the start time in milliseconds
-start_ticks = utime.ticks_ms()
+    def manual_setup(self):
+        """Manual input for time and alarm via buttons."""
+        # Set time
+        display.scroll("SET HOUR")
+        hour = self.get_number_input()
+        display.scroll("SET MIN")
+        minute = self.get_number_input()
+        self.clock.set_time(hour, minute)
 
-def to_binary(num):
-    return bin(num)[2:]  # Pad to 6 bits for display
+        # Set alarm
+        display.scroll("SET ALARM HOUR")
+        alarm_hour = self.get_number_input()
+        display.scroll("SET ALARM MIN")
+        alarm_min = self.get_number_input()
+        self.clock.set_alarm(alarm_hour, alarm_min)
 
-while True:
-    # Calculate elapsed time in minutes
-    elapsed_ms = utime.ticks_diff(utime.ticks_ms(), start_ticks)
-    elapsed_minutes = elapsed_ms // 60000
-    
-    # Update current time
-    current_hour = (start_hour + (start_minute + elapsed_minutes) // 60) % 24
-    current_minute = (start_minute + elapsed_minutes) % 60
-    
-    # Speech of the time
-    time_hour = str (current_hour)
-    time_minute = str (current_minute)
-    speech.say(time_hour + ':' + time_minute)
-    print(time_hour + ":" + time_minute)
+    def get_number_input(self):
+        """Get a number from 0–59 using buttons."""
+        num = 0
+        while True:
+            display.show(num)
+            if button_a.was_pressed():
+                num = (num + 1) % 60
+            elif button_b.was_pressed():
+                return num
+            sleep(150)
 
-    # Display binary time
-    display.scroll(to_binary(current_hour) + ":" + to_binary(current_minute))
+    def run(self):
+        """Main loop."""
+        while True:
+            self.clock.scroll_time()
 
-    
-    
-    sleep(60000)
+            if self.clock.check_alarm():
+                music.play(music.POWER_UP)
+
+            sleep(60000)  # 1-second simulation (fast clock for testing)
+            self.clock.increment_time()
+
+
+# Main Program
+system = MicrobitClockSystem()
+system.manual_setup()
+system.run()
