@@ -13,7 +13,8 @@ Ryan Hupp & Cal Lucas was teamed up to do a project 'Year 11 Software Engineerin
 
 Date - 7/8/2025
 -------
-6:30 am Cal L
+6:30 AM
+Cal L
 -------
 
 
@@ -22,12 +23,12 @@ Acheivments
 > I have added 2 imports including:
     > microbit |
     > utime |
-> This will help me adding clock function and detecting what time it is when adding an alarm system |
+> This will help me to add clock functions and detecting what time it is when adding an alarm system |
 
 -------------------------------------------------------------
 
 Problems
-> I have one problem though so far, this including: 
+> I have one problem so far, this including: 
     > Local time - from the import 'time' |
 > I do not know how to fic this as it is a browser based code editor |
 
@@ -47,7 +48,7 @@ Goals
 
 |
 
-12:30
+12:30 PM
 Cal L 
 -------
 
@@ -83,3 +84,43 @@ Goals
 > Get it to apply with OOP |
 
 >-------------------------------------------------------------
+Date - 11/8/2025
+-----
+2:04 PM
+Cal L & Ryan H
+-----
+Achivements
+> Added alerm and started on OOP
+> Removed Utime
+> Added import music
+> Added class bynary clock
+    This includes: Hours, minutes, alerm hours, hours in alerm minutes.
+    Def set_time
+    Def set_alerm
+    Def increment_time
+    Def check_alerm
+    Def time_to_bynary
+    Def scroll_time
+
+Added class: Microbit Clock System
+    Def manual_setup
+    Def get_number_input
+    Def run
+
+-------------------------------------------------------------
+
+Problems:
+> The alerm system currently consists of a three second delay (but the minutes are allined perfectly)
+
+-------------------------------------------------------------
+
+Goals:
+> Adding a reset button for alerm sysem
+
+-------------------------------------------------------------
+
+Description:
+As of now, the project is coming along smoothly, and it will be handed in on the due date. The Code has evolved from traditional programming into OOP (Object oriantated Programming) meaning it will be obtimision friendly.
+The big jump from traditional programming to OOP was difficult as Cal is not very proffesioned in that particular field.
+
+As for Ryan, he decided to wake the hell up and start contrubuting to the duo in the form of the journalist, documenting the process as time goes on. (Seems those writing skills were useful after all.)
