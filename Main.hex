@@ -5,13 +5,15 @@ class BinaryClock:
     def __init__(self):
         self.hours = 0
         self.minutes = 0
-        self.alarm_hour = 12
-        self.alarm_minute = 35
+        self.seconds = 0
+        self.alarm_hour = 0
+        self.alarm_minute = 0
 
-    def set_time(self, hours, minutes):
+    def set_time(self, hours, minutes, seconds):
         """Set the clock time manually."""
         self.hours = hours % 24
         self.minutes = minutes % 60
+        self.seconds = seconds % 60
 
     def set_alarm(self, hours, minutes):
         """Set the alarm time manually."""
@@ -21,9 +23,11 @@ class BinaryClock:
     def increment_time(self):
         """Simulate clock ticking every minute."""
         self.minutes += 1
-        if self.minutes >= 60:
-            self.minutes = 0
-            self.hours = (self.hours + 1) % 24
+        if self.seconds >= 60:
+            self.seconds = 0
+            if self.minutes >= 60:
+                self.minutes = 0
+                self.hours = (self.hours + 1) % 24
 
     def check_alarm(self):
         """Check if alarm should trigger."""
@@ -33,7 +37,8 @@ class BinaryClock:
         """Return the current time as a binary string."""
         h_binary = "{:05b}".format(self.hours)   # Hours: 0–23 needs 5 bits
         m_binary = "{:06b}".format(self.minutes) # Minutes: 0–59 needs 6 bits
-        return h_binary + " " + m_binary
+        s_binary = "{:06b}".format(self.seconds) # Seconds: 0–59 needs 6 bits
+        return h_binary + " " + m_binary + " " + s_binary
 
     def scroll_time(self):
         """Scroll the binary time across LEDs."""
@@ -51,7 +56,9 @@ class MicrobitClockSystem:
         hour = self.get_number_input()
         display.scroll("SET MIN")
         minute = self.get_number_input()
-        self.clock.set_time(hour, minute)
+        display.scroll("Set Seconds")
+        seconds = self.get_number_input()
+        self.clock.set_time(hour, minute, seconds)
 
         # Set alarm
         display.scroll("SET ALARM HOUR")
@@ -82,11 +89,11 @@ class MicrobitClockSystem:
             if self.clock.check_alarm():
                 music.play(music.POWER_UP)
 
-            sleep(60000)  # 1-second simulation (fast clock for testing)
+            sleep(1000)  # 1-second simulation
             self.clock.increment_time()
 
-
-# Main Program
-system = MicrobitClockSystem()
-system.manual_setup()
-system.run()
+while True:
+    # Main Program
+    system = MicrobitClockSystem()
+    system.manual_setup()
+    system.run()
