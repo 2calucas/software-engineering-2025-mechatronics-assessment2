@@ -92,8 +92,8 @@ class MicrobitClockSystem:
             sleep(1000)  # 1-second simulation
             self.clock.increment_time()
 
-while True:
-    # Main Program
-    system = MicrobitClockSystem()
-    system.manual_setup()
-    system.run()
+
+# Main Program
+system = MicrobitClockSystem()
+system.manual_setup()
+system.run()

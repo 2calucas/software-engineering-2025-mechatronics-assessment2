@@ -153,3 +153,14 @@ Description:
 
 I have been working on the schemeatics, which Mr Saini helped me with (thankyou sir). The schematics contain 7 resistors, 6 LEDs, 1 speaker and 2 buttons that is to give a rough outline of what hardware that I am using.
 I am also finishing up on the README.md File that will tell you how to use the program and how to read the schematic (roughly).
+----
+
+Date 21/08/2025 - 12:30pm
+---
+Cal L
+---
+
+Achievement:
+> Added extra comments within the code for better explorations for the teacher
+
+> Removed While True, because it was going to ruin the clock system
