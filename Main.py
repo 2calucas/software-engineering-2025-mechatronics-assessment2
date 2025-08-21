@@ -21,10 +21,10 @@ class BinaryClock:
         self.alarm_minute = minutes % 60
 
     def increment_time(self):
-        """Simulate clock ticking every minute."""
-        self.minutes += 1
+        self.seconds += 1
         if self.seconds >= 60:
             self.seconds = 0
+            self.minutes += 1
             if self.minutes >= 60:
                 self.minutes = 0
                 self.hours = (self.hours + 1) % 24
@@ -56,7 +56,7 @@ class MicrobitClockSystem:
         hour = self.get_number_input()
         display.scroll("SET MIN")
         minute = self.get_number_input()
-        display.scroll("Set Seconds")
+        display.scroll("SET SEC")
         seconds = self.get_number_input()
         self.clock.set_time(hour, minute, seconds)
 
