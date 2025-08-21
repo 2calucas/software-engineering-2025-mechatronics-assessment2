@@ -3,11 +3,22 @@
 
 Created on the 24/7/2025 
 
+Client Details
+Client: Bynary Clock with Sound Based Controls
+-----
+> Obtain MaQueen micro:bit Robot
+> Using python.microbit.org, programmed the clock functions into micro:bit
 
+Clinet Needs
+The client requires JUST the micro:bit, as the actual MaQueen is useless unless we decide to make the clock mobile. The micro:bit will be programmed to be able to set alarm, seconds, minutes, and hours to the users desired time. An alarm will go off when the timer reaches the set time given to it, and will ask for the user to set a new time.
 
+Core Purpose
+The micro:bit's core purpose is to act as an alarm clock with settable inputs that can display the time in bynary code.
 
-
-Ryan Hupp & Cal Lucas was teamed up to do a project 'Year 11 Software Engineering - Year 11 Assessment Task 2 - Mechatronic & Object-oriented Programming - Binary cloock with sound based alarm control'. This will a shared project, with two classes; Time to Binary and Controlled Sound Alarm.
+Explanation:
+The project consists of only the micro:bit, with every button and light being modified to serve a purpose within the process. "A" is to set the time displayed while "B" is to confirm your inputs, the micro:bit will then start the alarm and display how much time the clock has left. Once the clock hits zero, the alarm will go off for around a second or two then will turn off, awaiting its next inputs. The 5x5 LED pannel on it's face will display the instructions in setup mode as well as the inputted time when the clock is started. The lights on the back do not of the micro:bit do not serve any unique purpose and are just there to show the micro:bit is working.
+-----
+Ryan Hupp & Cal Lucas has teamed up to do a project 'Year 11 Software Engineering - Year 11 Assessment Task 2 - Mechatronic & Object-oriented Programming - Binary cloock with sound based alarm control'. This will be a shared project, with two classes; Time to Binary and Controlled Sound Alarm.
 
 >-------------------------------------------------------------
 |
@@ -24,20 +35,20 @@ Cal L
 
 
 
-Achievements
+Acheivments
 > I have added 2 imports including:
     > microbit |
     > utime |
-> This will help me to add clock functions and detecting what time it is when adding an alarm system |
+> This will help me to add the clock functions and detecting what time it is when adding an alarm system |
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 
 Problems
 > I have one problem so far, this including: 
     > Local time - from the import 'time' |
 > I do not know how to fix this as it is a browser based code editor |
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 
 Goals
 > Get clock function working |
@@ -71,19 +82,19 @@ The time is displayed in binary on the micro:bit’s LED, scrolling across the s
 Finally, it takes a one-minute break before starting the whole thing over.
 This program shows off the micro:bit’s skills as a timekeeper, giving us both sound and light to keep us informed. It’s a pretty good and engaging way to use this little device.
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 
-Achievement 
+Acheivment 
 >I have Got the clock to work |
 > Time to Speech |
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 
 Problems
 > NO alarm system implemented yet |
 > No OOP implemented yet |
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 Goals
 > Get the Alarm system running |
 > Get it to apply with OOP |
@@ -92,19 +103,19 @@ Goals
 Date - 11/8/2025
 -----
 2:04 PM
-Cal L & Ryan H
+Cal L and Ryan H
 -----
-Achievements
-> Added alarm and started on OOP
+Achivements
+> Added alerm and started on OOP
 > Removed Utime
 > Added import music
-> Added class binary clock
-    This includes: hours, minutes, alarm hours, hours in alarm minutes.
+> Added class bynary clock
+    This includes: Hours, minutes, alerm hours, hours in alerm minutes.
     Def set_time
-    Def set_alarm
+    Def set_alerm
     Def increment_time
-    Def check_alarm
-    Def time_to_binary
+    Def check_alerm
+    Def time_to_bynary
     Def scroll_time
 
 Added class: Microbit Clock System
@@ -112,55 +123,38 @@ Added class: Microbit Clock System
     Def get_number_input
     Def run
 
--------------------------------------------------------------
+>-------------------------------------------------------------
 
 Problems:
-> The alarm system currently consists of a three second delay (but the minutes are alined perfectly)
+> The alerm system currently consists of a three second delay (but the minutes are allined perfectly)
 
--------------------------------------------------------------
-
-Goals:
-> Adding a reset button for alerm system
-
--------------------------------------------------------------
-
-Description:
-As of now, the project is coming along smoothly, and it will be handed in on the due date. The Code has evolved from traditional programming into OOP (Object Orientated Programming) meaning it will be optimised.
-The big jump from traditional programming to OOP was difficult as Cal is not very professional in that particular field.
-
-As for Ryan, he decided to wake the hell up and start contributing to the duo in the form of the journalist, documenting the process as time goes on. (Seems those writing skills were useful after all.)
------------
-
-Date - 18/8/2025
----
-Cal L
----
-
-Achievement:
-> Created A schematic
-
-> Finishing up on the README.md
+>-------------------------------------------------------------
 
 Goals:
-> Finish all work
+> Adding a reset button for alerm sysem
 
-
-Troubles
-
-N/A
+>-------------------------------------------------------------
 
 Description:
+As of now, the project is coming along smoothly, and it will be handed in on the due date. The Code has evolved from traditional programming into OOP (Object oriantated Programming) meaning it will be obtimision friendly.
+The big jump from traditional programming to OOP was difficult as Cal is not very proffesioned in that particular field.
 
-I have been working on the schemeatics, which Mr Saini helped me with (thankyou sir). The schematics contain 7 resistors, 6 LEDs, 1 speaker and 2 buttons that is to give a rough outline of what hardware that I am using.
-I am also finishing up on the README.md File that will tell you how to use the program and how to read the schematic (roughly).
-----
+As for Ryan, he decided to wake the hell up and start contrubuting to the duo in the form of the journalist, documenting the process as time goes on. (Seems those writing skills were useful after all.)
 
-Date 21/08/2025 - 12:30pm
----
-Cal L
----
+>--------------------------------------------------------------
+Date - 14/8/2025
+-----
+12:13 PM
+Cal L and Ryan H
+-----
+Achivements
+> Added seconds to the clock
+> Added a loop to the clock
+> Just about finished coding the clock
 
-Achievement:
-> Added extra comments within the code for better explorations for the teacher
-
-> Removed While True, because it was going to ruin the clock system
+-----
+Problems
+> Testing is incompleted
+-----
+Goals
+> Complete as much of the Portfolio as possible by due date
